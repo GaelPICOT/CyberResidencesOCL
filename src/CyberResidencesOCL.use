@@ -152,7 +152,6 @@ constraints
     -- order. The label of this type of discount is 'BROOO50'. This
     -- rule does not apply in economy residences.
 
-
 -------------------------------------------------------------------------------
 --                               aboooPercentage
 -------------------------------------------------------------------------------
@@ -299,10 +298,11 @@ constraints
 -- Derivation of maxNbOfFreeUnits attribute.
 -- Easy
 
--- context Residence inv deriveMaxNbOfFreeUnits:
+context Residence inv deriveMaxNbOfFreeUnits:
     -- The maximum number of free units is equal to the maximum number
     -- of places in beds of all rooms of the residence.
-
+    self.maxNbOfFreeUnits = self.bedrooms().nbOfSingleBeds->sum()
+                            + self.bedrooms().nbOfDoubleBeds->sum() * 2
 
 -------------------------------------------------------------------------------
 --                               deriveNbOfUnits
