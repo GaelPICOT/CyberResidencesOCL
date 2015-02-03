@@ -1,7 +1,21 @@
--- @assert Residence__deriveMaxNbOfFreeUnits KO
+-- @assert Residence__deriveMaxNbOfFreeUnits OK
 
 -- context self : Residence inv deriveMaxNbOfFreeUnits :
 -- Derivation of maxNbOfFreeUnits attribute.
 
 -- open -q <BASE>.soil
 -- here some mutation code
+
+!create bat : Residence
+!set bat.maxNbOfFreeUnits := 5
+
+!create room1 : Bedroom
+!set room1.nbOfSingleBeds := 1
+!set room1.nbOfDoubleBeds := 1
+
+!create room2 : Bedroom
+!set room2.nbOfSingleBeds := 1
+!set room2.nbOfDoubleBeds := 1
+
+!insert (bat,room1) into ContainsRooms
+!insert (bat,room2) into ContainsRooms
