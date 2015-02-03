@@ -1,0 +1,21 @@
+Si question : poster une "issue" sur megaplanet/CyberResidence
+
+Package Building :
+Invariants Residence
+Invariants Room
+Invariants Bathroom
+Invariants Bedroom
+
+------------------------------------------------
+
+Package Rents :
+Invariants Resident
+Invariants Tenant
+Invariants Bedroom
+
+-----------------------------------------------
+
+Package Rates :
+Invariants Rent
+Invariants Discount
+Invariants Residence
