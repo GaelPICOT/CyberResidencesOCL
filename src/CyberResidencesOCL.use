@@ -115,8 +115,8 @@ end
 
 associationclass Rent
 between
-    Bedroom[1..*] role rentedBedrooms
-    Tenant[0..1] role tenant
+    Bedroom[1..*] role rentedBedrooms -- @derived
+    Tenant[0..1] role tenant -- @derived
 attributes
     discount : Real
     rate : Real
