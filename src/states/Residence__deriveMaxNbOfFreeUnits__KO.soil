@@ -1,4 +1,4 @@
--- @assert Residence__deriveMaxNbOfFreeUnits OK
+-- @assert Residence__deriveMaxNbOfFreeUnits KO
 
 -- context self : Residence inv deriveMaxNbOfFreeUnits :
 -- Derivation of maxNbOfFreeUnits attribute.
@@ -7,15 +7,29 @@
 -- here some mutation code
 
 !create bat : Residence
+!set bat.floorMin := 0
+!set bat.floorMax := 2
+!set bat.category := Category::economy
 !set bat.maxNbOfFreeUnits := 5
+!set bat.name := 'hostel'
 
-!create room1 : Bedroom
-!set room1.nbOfSingleBeds := 1
-!set room1.nbOfDoubleBeds := 1
+!create bedroom1 : Bedroom
+!set bedroom1.floor := 2
+!set bedroom1.isOutOfOrder := false
+!set bedroom1.number := 200
+!set bedroom1.nbOfSingleBeds := 1
+!set bedroom1.nbOfDoubleBeds := 1
+!set bedroom1.isNonSmoking := false
+!set bedroom1.nbOfUnits := 2
 
-!create room2 : Bedroom
-!set room2.nbOfSingleBeds := 1
-!set room2.nbOfDoubleBeds := 1
+!create bedroom2 : Bedroom
+!set bedroom2.floor := 2
+!set bedroom2.isOutOfOrder := false
+!set bedroom2.number := 201
+!set bedroom2.nbOfSingleBeds := 1
+!set bedroom2.nbOfDoubleBeds := 1
+!set bedroom2.isNonSmoking := false
+!set bedroom2.nbOfUnits := 2
 
-!insert (bat,room1) into ContainsRooms
-!insert (bat,room2) into ContainsRooms
+!insert (bat,bedroom1) into ContainsRooms
+!insert (bat,bedroom2) into ContainsRooms

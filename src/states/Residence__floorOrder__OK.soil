@@ -5,3 +5,10 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
+
+!create bat : Residence
+!set bat.floorMin := 0
+!set bat.floorMax := 2
+!set bat.category := Category::economy
+!set bat.maxNbOfFreeUnits := 5
+!set bat.name := 'hostel'

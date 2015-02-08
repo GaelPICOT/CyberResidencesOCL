@@ -188,9 +188,11 @@ constraints
 -- Invariant about all bathrooms for 'prestige' residence.
 -- Medium. use 'implies'.
 
--- context Residence inv allPrestigeBathrooms:
+context Residence inv allPrestigeBathrooms:
     -- Residences of category prestige have in each bedroom at least
     -- the same number of bathroom that the number of beds.
+	(self.category = Category::prestige and self.bedrooms()->notEmpty()) implies
+	self.bedrooms()->forAll(b : Bedroom | b.nbOfSingleBeds + b.nbOfDoubleBeds <= b.bathrooms->size())
 
 
 -------------------------------------------------------------------------------
@@ -301,8 +303,9 @@ constraints
 context Residence inv deriveMaxNbOfFreeUnits:
     -- The maximum number of free units is equal to the maximum number
     -- of places in beds of all rooms of the residence.
-    self.maxNbOfFreeUnits = self.bedrooms().nbOfSingleBeds->sum()
-                            + self.bedrooms().nbOfDoubleBeds->sum() * 2
+    self.bedrooms()->notEmpty() implies 
+	self.maxNbOfFreeUnits = self.bedrooms().nbOfSingleBeds->sum()
+		+ self.bedrooms().nbOfDoubleBeds->sum() * 2
 
 -------------------------------------------------------------------------------
 --                               deriveNbOfUnits
@@ -379,10 +382,10 @@ context Residence inv deriveMaxNbOfFreeUnits:
 -- Order between floorMin and floorMax attributes.
 -- Easy
 
--- context Residence inv floorOrder:
+context Residence inv floorOrder:
     -- The maximum floor is at higher or at the same level that the
     -- minimum floor of the residence.
-
+	self.floorMin <= self.floorMax
 
 -------------------------------------------------------------------------------
 --                                 labelUnique
@@ -600,7 +603,8 @@ context Residence inv deriveMaxNbOfFreeUnits:
 -- Invariant on room numbering.
 -- Medium
 
--- context Residence inv uniqueNumberApartForPrivateBathroom:
+context Residence inv uniqueNumberApartForPrivateBathroom:
     -- All rooms have a distinct number, except private bathrooms.
-
-
+	self.rooms->notEmpty() implies
+	(self.rooms - self.bathrooms()->select(bedroom->notEmpty()))
+	->forAll(r1, r2 : Room | r1 <> r2 implies r1.number <> r2.number)
