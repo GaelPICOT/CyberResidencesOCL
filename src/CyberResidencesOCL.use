@@ -277,10 +277,11 @@ context Residence inv allPrestigeBathrooms:
 -- Derivation of the attribute floor.
 -- Easy
 
--- context Room inv deriveFloor:
+context Room inv deriveFloor:
     -- The floor number correspond to the first digits of the room
     -- number, where the last two digits are removed. For instance the
     -- room 634 is at the floor 6.
+	self.number div 100 = self.floor
 
 
 -------------------------------------------------------------------------------
@@ -371,9 +372,11 @@ context Residence inv deriveMaxNbOfFreeUnits:
 -- Floor between minimum and maximum floors.
 -- Easy
 
--- context Room inv floorBetweenMinAndMax:
+context Room inv floorBetweenMinAndMax:
     -- The floor of a room is between the minium and maximum floor of
     -- the residence.
+	not(self.residence.isUndefined()) implies
+	(self.floor >= self.residence.floorMin) and (self.floor <= self.residence.floorMax)
 
 
 -------------------------------------------------------------------------------
