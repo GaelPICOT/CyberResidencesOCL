@@ -1,9 +1,9 @@
 Si question : poster une "issue" sur megaplanet/CyberResidence
 
 Package Building :
-Invariants Residence
-Invariants Room
-Invariants Bathroom
+Invariants Residence ... OK
+Invariants Room ... OK
+Invariants Bathroom ... OK
 Invariants Bedroom
 
 ------------------------------------------------

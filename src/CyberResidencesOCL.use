@@ -290,9 +290,10 @@ context Room inv deriveFloor:
 -- Derivation of isOnTheLanding attribute.
 -- Easy
 
--- context Bathroom inv deriveIsOnTheLanding:
+context Bathroom inv deriveIsOnTheLanding:
     -- A bathroom is said to be on the landing if it is not in a
     -- bedroom.
+	self.isOnTheLanding implies self.bedroom->isEmpty()
 
 
 -------------------------------------------------------------------------------
@@ -491,12 +492,13 @@ context Residence inv floorOrder:
 -- Out of order bathroom implications if prestige. 
 -- Medium. Use 'implies'
 
--- context Bathroom inv oooIfPrestige:
+context Bathroom inv oooIfPrestige:
     -- In prestige residences, it is not acceptable to rent bedrooms
-    -- with bathrooms that are out of order. So if a bathrom is marked
+    -- with bathrooms that are out of order. So if a bathroom is marked
     -- as out of order, the corresponding bedroom is also marked as
     -- out of order.
-
+	(self.residence.category = Category::prestige and self.bedroom->notEmpty())  implies
+	self.isOutOfOrder = self.bedroom.isOutOfOrder
 
 -------------------------------------------------------------------------------
 --                              rentInOneResidence
@@ -515,10 +517,12 @@ context Residence inv floorOrder:
 -- Same number if private.
 -- Easy. Use 'implies'.
 
--- context Bathroom inv sameNumberIfPrivate:
+context Bathroom inv sameNumberIfPrivate:
     -- All bathrooms that are not on the landing, that is that are
     -- private to a bedroom, have the same number of room as this
     -- bedroom.
+	self.bedroom->notEmpty() implies
+	self.number = self.bedroom.number
 
 
 -------------------------------------------------------------------------------
