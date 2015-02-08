@@ -20,7 +20,7 @@
 !set bedroom1.nbOfSingleBeds := 1
 !set bedroom1.nbOfDoubleBeds := 1
 !set bedroom1.isNonSmoking := false
-!set bedroom1.nbOfUnits := 2
+!set bedroom1.nbOfUnits := 3
 
 !create bathroom1 : Bathroom
 !set bathroom1.floor := 2

@@ -201,8 +201,9 @@ context Residence inv allPrestigeBathrooms:
 -- At least one bed for useful bedrooms.
 -- Easy. Use implies.
 
--- context Bedroom inv atLeastABed:
+context Bedroom inv atLeastABed:
     -- Bedrooms that are not out of order must have at least one bed.
+	not(self.isOutOfOrder) implies (self.nbOfSingleBeds > 0 or self.nbOfDoubleBeds > 0)
 
 
 -------------------------------------------------------------------------------
@@ -362,9 +363,11 @@ context Residence inv deriveMaxNbOfFreeUnits:
 -- At least as many bathrooms than beds for prestige residence.
 -- Easy. Use implies.
 
--- context Bedroom inv enoughBathroomsInPrestige:
+context Bedroom inv enoughBathroomsInPrestige:
     -- In a prestige residence, the number of private bathrooms is at
     -- least the same as the number of beds in each bedroom.
+	(self.residence.category = Category::prestige and not(self.residence.isUndefined())) implies
+	self.bathrooms->size() >= (self.nbOfSingleBeds + self.nbOfDoubleBeds)
 
 
 -------------------------------------------------------------------------------
