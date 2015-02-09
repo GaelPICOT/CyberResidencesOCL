@@ -316,10 +316,11 @@ context Residence inv deriveMaxNbOfFreeUnits:
 -- Derivation of nbOfUnits attribute.
 -- Easy
 
--- context Bedroom inv deriveNbOfUnits:
+context Bedroom inv deriveNbOfUnits:
     -- The number of units of a bedroom is the maximum number of
     -- people that can fit within the bedroom assuming that all places
     -- in all beds are full.
+	self.nbOfUnits = self.nbOfSingleBeds + self.nbOfDoubleBeds * 2
 
 
 -------------------------------------------------------------------------------
@@ -570,8 +571,9 @@ context Bathroom inv sameNumberIfPrivate:
 -- No smoking is prestige.
 -- Easy
 
--- context Bedroom inv smokingPrestigePolicy:
+context Bedroom inv smokingPrestigePolicy:
     -- There are no smoking rooms at all in residence of prestige.
+	self.residence.category = Category::prestige implies self.isNonSmoking = true
 
 
 -------------------------------------------------------------------------------

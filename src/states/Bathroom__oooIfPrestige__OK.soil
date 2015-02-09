@@ -19,8 +19,8 @@
 !set bedroom1.number := 200
 !set bedroom1.nbOfSingleBeds := 1
 !set bedroom1.nbOfDoubleBeds := 0
-!set bedroom1.isNonSmoking := false
-!set bedroom1.nbOfUnits := 3
+!set bedroom1.isNonSmoking := true
+!set bedroom1.nbOfUnits := 1
 
 !create bedroom2 : Bedroom
 !set bedroom2.floor := 2
@@ -28,7 +28,7 @@
 !set bedroom2.number := 201
 !set bedroom2.nbOfSingleBeds := 0
 !set bedroom2.nbOfDoubleBeds := 1
-!set bedroom2.isNonSmoking := false
+!set bedroom2.isNonSmoking := true
 !set bedroom2.nbOfUnits := 2
 
 !create bathroom1 : Bathroom

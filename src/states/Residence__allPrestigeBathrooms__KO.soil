@@ -19,7 +19,7 @@
 !set bedroom1.number := 200
 !set bedroom1.nbOfSingleBeds := 1
 !set bedroom1.nbOfDoubleBeds := 1
-!set bedroom1.isNonSmoking := false
+!set bedroom1.isNonSmoking := true
 !set bedroom1.nbOfUnits := 3
 
 !create bedroom2 : Bedroom
@@ -28,14 +28,14 @@
 !set bedroom2.number := 201
 !set bedroom2.nbOfSingleBeds := 0
 !set bedroom2.nbOfDoubleBeds := 1
-!set bedroom2.isNonSmoking := false
+!set bedroom2.isNonSmoking := true
 !set bedroom2.nbOfUnits := 2
 
 !create bathroom1 : Bathroom
 !set bathroom1.floor := 1
 !set bathroom1.isOutOfOrder := false
 !set bathroom1.number := 100
-!set bathroom1.isOnTheLanding := true
+!set bathroom1.isOnTheLanding := false
 
 !create bathroom2 : Bathroom
 !set bathroom2.floor := 2

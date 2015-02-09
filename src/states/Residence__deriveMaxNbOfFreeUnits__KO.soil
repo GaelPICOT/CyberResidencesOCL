@@ -29,7 +29,7 @@
 !set bedroom2.nbOfSingleBeds := 1
 !set bedroom2.nbOfDoubleBeds := 1
 !set bedroom2.isNonSmoking := false
-!set bedroom2.nbOfUnits := 2
+!set bedroom2.nbOfUnits := 3
 
 !insert (bat,bedroom1) into ContainsRooms
 !insert (bat,bedroom2) into ContainsRooms
