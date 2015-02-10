@@ -58,7 +58,8 @@ attributes
     nbOfSingleBeds : Integer
     nbOfDoubleBeds : Integer
     isNonSmoking : Boolean
-        nbOfUnits : Integer    -- @derived
+    nbOfUnits : Integer    -- @derived
+    rate : float
 end
 
 composition ContainsRooms between
