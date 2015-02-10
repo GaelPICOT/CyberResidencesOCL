@@ -4,7 +4,7 @@ Package Building :
 Invariants Residence ... OK
 Invariants Room ... OK
 Invariants Bathroom ... OK
-Invariants Bedroom ... EN COURS (2/4)
+Invariants Bedroom ... OK
 
 ------------------------------------------------
 
