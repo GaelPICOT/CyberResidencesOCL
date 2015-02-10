@@ -59,7 +59,7 @@ attributes
     nbOfDoubleBeds : Integer
     isNonSmoking : Boolean
     nbOfUnits : Integer    -- @derived
-    rate : float
+    rate : Real
 end
 
 composition ContainsRooms between
