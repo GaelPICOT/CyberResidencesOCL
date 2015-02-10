@@ -19,3 +19,12 @@ Package Rates :
 Invariants Rent
 Invariants Discount
 Invariants Residence
+
+à rendre (ou vomir) :
+-> github :
+    >> .use
+    >> states/*OK.soil
+    >> states/*KO.soil
+-> feuille google sheet remplie
+
+vendredi 27 fevrier 18h
