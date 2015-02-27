@@ -5,3 +5,27 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
+
+!create G236_residence1 : Residence
+
+!create G236_bedroom1 : Bedroom
+
+!create G236_bedroom2 : Bedroom
+
+!create G236_resident1 : Resident
+
+!create G236_resident2 : Resident
+
+!create G236_tenant1 : Tenant
+
+!create G236_rent1 : Rent between (G236_bedroom1,G236_tenant1)
+
+!create G236_rent2 : Rent between (G236_bedroom2,G236_tenant1)
+
+!insert (G236_residence1,G236_bedroom1) into ContainsRooms
+!insert (G236_residence1,G236_bedroom2) into ContainsRooms
+!insert (G236_resident1,G236_bedroom1) into IsOccupiedBy
+!insert (G236_resident2,G236_bedroom2) into IsOccupiedBy
+!insert (G236_tenant1,G236_bedroom2) into IsOccupiedBy
+!insert (G236_resident1,G236_resident2) into IsMarriedWith
+!insert (G236_resident2,G236_resident1) into IsMarriedWith
