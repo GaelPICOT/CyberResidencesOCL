@@ -6,9 +6,6 @@
 -- open -q <BASE>.soil
 -- here some mutation code
 
-!create bat : Residence
-!set bat.floorMin := 3
-!set bat.floorMax := 2
-!set bat.category := Category::economy
-!set bat.maxNbOfFreeUnits := 5
-!set bat.name := 'hostel'
+!create G236_residence1 : Residence
+!set G236_residence1.floorMin := 3
+!set G236_residence1.floorMax := 2

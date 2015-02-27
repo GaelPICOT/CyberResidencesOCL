@@ -5,3 +5,24 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
+
+!create G236_residence1 : Residence
+!set G236_residence1.category := Category::prestige
+
+!create G236_residence2 : Residence
+
+!create G236_bedroom1 : Bedroom
+
+!create G236_bedroom2 : Bedroom
+
+!create G236_resident1 : Resident
+!set G236_resident1.age := 17
+
+!create G236_resident2 : Resident
+!set G236_resident2.age := 17
+
+!insert (G236_residence1,G236_bedroom1) into ContainsRooms
+!insert (G236_residence2,G236_bedroom2) into ContainsRooms
+!insert (G236_resident1,G236_bedroom1) into IsOccupiedBy
+!insert (G236_resident2,G236_bedroom2) into IsOccupiedBy
+!insert (G236_resident2,G236_resident2) into IsTutoredBy

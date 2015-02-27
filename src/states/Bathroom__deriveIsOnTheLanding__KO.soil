@@ -6,35 +6,13 @@
 -- open -q <BASE>.soil
 -- here some mutation code
 
-!create bat : Residence
-!set bat.floorMin := 0
-!set bat.floorMax := 2
-!set bat.category := Category::economy
-!set bat.maxNbOfFreeUnits := 3
-!set bat.name := 'hostel'
+!create G236_residence1 : Residence
 
-!create bedroom1 : Bedroom
-!set bedroom1.floor := 2
-!set bedroom1.isOutOfOrder := false
-!set bedroom1.number := 200
-!set bedroom1.nbOfSingleBeds := 1
-!set bedroom1.nbOfDoubleBeds := 1
-!set bedroom1.isNonSmoking := false
-!set bedroom1.nbOfUnits := 3
+!create G236_bedroom1 : Bedroom
 
-!create bathroom1 : Bathroom
-!set bathroom1.floor := 1
-!set bathroom1.isOutOfOrder := false
-!set bathroom1.number := 100
-!set bathroom1.isOnTheLanding := false
+!create G236_bathroom1 : Bathroom
+!set G236_bathroom1.isOnTheLanding := true
 
-!create bathroom2 : Bathroom
-!set bathroom2.floor := 2
-!set bathroom2.isOutOfOrder := false
-!set bathroom2.number := 200
-!set bathroom2.isOnTheLanding := true
-
-!insert (bat,bedroom1) into ContainsRooms
-!insert (bat,bathroom1) into ContainsRooms
-!insert (bat,bathroom2) into ContainsRooms
-!insert (bathroom2,bedroom1) into IsInBedroom
+!insert (G236_residence1,G236_bedroom1) into ContainsRooms
+!insert (G236_residence1,G236_bathroom1) into ContainsRooms
+!insert (G236_bathroom1,G236_bedroom1) into IsInBedroom

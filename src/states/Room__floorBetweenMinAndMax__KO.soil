@@ -6,20 +6,19 @@
 -- open -q <BASE>.soil
 -- here some mutation code
 
-!create bat : Residence
-!set bat.floorMin := 0
-!set bat.floorMax := 2
-!set bat.category := Category::economy
-!set bat.maxNbOfFreeUnits := 3
-!set bat.name := 'hostel'
+!create G236_residence1 : Residence
+!set G236_residence1.floorMin := 0
+!set G236_residence1.floorMax := 2
 
-!create bedroom1 : Bedroom
-!set bedroom1.floor := 3
-!set bedroom1.isOutOfOrder := false
-!set bedroom1.number := 300
-!set bedroom1.nbOfSingleBeds := 1
-!set bedroom1.nbOfDoubleBeds := 1
-!set bedroom1.isNonSmoking := false
-!set bedroom1.nbOfUnits := 3
+!create G236_bedroom1 : Bedroom
+!set G236_bedroom1.floor := 2
 
-!insert (bat,bedroom1) into ContainsRooms
+!create G236_bedroom2 : Bedroom
+!set G236_bedroom2.floor := 3
+
+!create G236_bathroom1 : Bathroom
+!set G236_bathroom1.floor := 0
+
+!insert (G236_residence1,G236_bedroom1) into ContainsRooms
+!insert (G236_residence1,G236_bedroom2) into ContainsRooms
+!insert (G236_residence1,G236_bathroom1) into ContainsRooms
